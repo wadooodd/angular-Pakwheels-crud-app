@@ -1,0 +1,24 @@
+<div class="row">
+
+    <app-filter [inpmsg]="reciver" (output)="FilterByCity($event) " [inpmsg2]="reciver2" (output2)="FilterByMake($event)
+    " [inpmsg3]="reciver3" (output3)="FilterByType($event)" [inpmsg4]="reciver4" (output4)="FilterByRating ($event)" [inpmsg5]="reciver5" (output5)="FilterByPrice ($event)" [inpmsg6]="reciver6" (output6)="FilterByColor ($event)"></app-filter>
+
+    <!-- <app-filter [inpmsg2]="reciver " (output2)="FilterByMake($event) "></app-filter> -->
+
+
+
+    <p *ngIf="productslist.length==0; else Display "><br><strong>No Record Found :(</strong></p>
+
+    <ng-template #Display>
+
+        <div class="col-md-6 " *ngFor="let i of productslist ">
+            <app-items [pitems]="i " (click)="DisplayVehicleInfo(i)"></app-items>
+        </div>
+
+    </ng-template>
+
+</div>
+
+<h6>Add Vehicle</h6>
+<a routerLink="add">Add Vehicle</a>
+<router-outlet></router-outlet>

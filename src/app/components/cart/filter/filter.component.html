@@ -1,0 +1,76 @@
+<!-- <form>
+    <div class="flexContainer">
+        <strong><label>Filter By City</label></strong>
+        <input type="text" #city class="form-control" style="width:30%">
+        <button class=" btn btn-primary btn-block " (click)="FilterByCity(city.value) ;false ">Filter</button>
+    </div>
+
+
+    <div class="form-group">
+        <strong><label>Filter By Make</label></strong>
+        <input type="text" #make class="form-control" style="width:30%">
+    </div>
+    <br>
+    <button class=" btn btn-primary btn-block " (click)="FilterByMake(make.value) ;false ">Filter</button>
+
+</form> -->
+
+<form>
+    <div class="row">
+        <div class="col">
+            <strong><label>Filter By City</label></strong>
+            <input type="text" #city class="form-control" style="width:60%">
+            <button class=" btn btn-primary btn-block " (click)="FilterByCity(city.value) ;false ">Filter</button>
+        </div>
+
+        <div class="col">
+            <strong><label>Filter By Make</label></strong>
+            <input type="text" #make class="form-control" style="width:60%">
+            <button class=" btn btn-primary btn-block " (click)="FilterByMake(make.value) ;false ">Filter</button>
+        </div>
+
+        <div class="col">
+            <strong><label>Filter By Vehicle Type</label></strong>
+            <input type="text" #type class="form-control" style="width:60%">
+            <button class=" btn btn-primary btn-block " (click)="FilterByType(type.value) ;false ">Filter</button>
+        </div>
+
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col">
+            <strong><label>Filter By Rating (1-5)</label></strong>
+            <input type="text" #rate class="form-control" style="width:60%">
+            <button class=" btn btn-primary btn-block " (click)="FilterByRating(rate.value) ;false ">Filter</button>
+        </div>
+
+        <!-- <div class="col">
+            <strong><label>Filter By Price (10000-40000000)</label></strong><br>
+            <input type="range" min="10000" max="40000000" name="sld" value="800000" #rangeP>
+            <br>
+            <button class=" btn btn-primary btn-block " (click)="FilterByPrice(rangeP.value) ;false ">Filter</button>
+        </div> -->
+
+
+        <div class="col">
+            <strong><label>Filter By Price </label></strong><br>
+            <label>Lower range</label>
+            <input type="range" min="10000" max="40000000" name="sld" value="10000" #rangePL><br>
+
+            <label>Upper range</label>
+            <input type="range" min="10000" max="40000000" name="sld" value="9000000" #rangePU>
+            <br>
+            <button class=" btn btn-primary btn-block " (click)="FilterByPrice(rangePL.value,rangePU.value) ;false ">Filter</button>
+        </div>
+
+        <div class="col">
+            <strong><label>Filter By Color</label></strong>
+            <input type="text" #color class="form-control" style="width:60%">
+            <button class=" btn btn-primary btn-block " (click)="FilterByColor(color.value) ;false ">Filter</button>
+        </div>
+
+
+
+    </div>
+</form>

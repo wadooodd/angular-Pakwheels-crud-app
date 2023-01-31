@@ -1,0 +1,106 @@
+<div class="container py-3">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Vehicle Management</h2>
+        </div>
+        <div class="col ml-auto text-right">
+            <button type="button" class="btn btn-outline-success" (click)="onAddProduct()">Add Vehicle</button>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-4" *ngFor="let item of products">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <img src="https://cache2.pakwheels.com/ad_pictures/6499/bmw-i8-roadster-5-2018-64998586.jpg" alt="Girl in a jacket" width="300" height="300">
+                    <h5 class="card-title">{{item.title}}</h5>
+                    <h5 class="card-title">{{item.location}}</h5>
+                    <h5 class="card-title">{{item.price}}</h5>
+                    <h5 class="card-title">1/1/1</h5>
+                    <h5 class="card-title">4</h5>
+                    <h5 class="card-title">{{item.category}}</h5>
+                    <h5 class="card-title">Unknown</h5>
+                    <h5 class="card-title">{{item.color}}</h5>
+                    <h5 class="card-title">{{item.sellerName}}</h5>
+                    <h5 class="card-title">{{item.sellerPhone}}</h5>
+                    <h5 class="card-title">sample@gmail.</h5>
+                    <h5 class="card-title">{{item.millage}}</h5>
+                    <hr>
+                    <button type="button" class="btn btn-sm btn-outline-primary mr-2" (click)="onEditProduct(item)" >Edit</button>
+                    <button type="button" class="btn btn-sm btn-outline-danger" (click)="onDeleteProduct(item._id)">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade show" [class.show]="showModal">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{editMode? 'Update' :'Add'}} Vehicle</h5>
+                <button (click)="onCloseModal()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form [formGroup]="prodForm" (ngSubmit)="onProdSubmit()">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Enter Car Name</label>
+                        <input type="text" class="form-control" formControlName="title">
+                    </div>
+                    <div class="form-group">
+                        <label>Enter Location</label>
+                        <input type="text" class="form-control" formControlName="location">
+                    </div>
+                    <div class="form-group">
+                        <label>Enter Price</label>
+                        <input type="text" class="form-control" formControlName="price">    
+                    </div>
+                    <!---->
+                    <div class="form-group">
+                        <label>Enter Date</label>
+                        <input type="text" class="form-control" formControlName="date">    
+                    </div>
+                    <div class="form-group">
+                        <label>Enter Rating</label>
+                        <input type="text" class="form-control" formControlName="rating">    
+                    </div>
+                    <div class="form-group">
+                        <label>Enter Category</label>
+                        <input type="text" class="form-control" formControlName="category">    
+                    </div>
+                    <div class="form-group">
+                        <label>Enter Make</label>
+                        <input type="text" class="form-control" formControlName="make">    
+                    </div>
+                    <div class="form-group">
+                        <label>Enter Color</label>
+                        <input type="text" class="form-control" formControlName="color">    
+                    </div>
+                    <div class="form-group">
+                        <label>Enter Seller Name</label>
+                        <input type="text" class="form-control" formControlName="sellerName">    
+                    </div>
+                    <div class="form-group">
+                        <label>Enter Seller Phone</label>
+                        <input type="text" class="form-control" formControlName="sellerPhone">    
+                    </div>
+                    <div class="form-group">
+                        <label>Enter Seller Email</label>
+                        <input type="text" class="form-control" formControlName="sellerEmail">    
+                    </div>
+                    <div class="form-group">
+                        <label>Enter Millage</label>
+                        <input type="text" class="form-control" formControlName="millage">    
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" (click)="onCloseModal()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">{{editMode? 'Update Vehicle' :'Add Vehicle'}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
